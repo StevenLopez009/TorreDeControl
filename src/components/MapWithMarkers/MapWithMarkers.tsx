@@ -18,7 +18,7 @@ const customIcon = L.icon({
 
 const MapWithMarkers: React.FC<MapWithMarkersProps> = ({ locations }) => {
   return (
-    <MapContainer center={[51.505, -0.09]} zoom={3} style={{ height: '100vh', width: '100%' }}>
+    <MapContainer center={[51.505, -0.09]} zoom={3} style={{ height: '50vh', width: '60%' , margin:"100px"}}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
