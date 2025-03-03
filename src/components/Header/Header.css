@@ -67,3 +67,7 @@
   width: 100%;
   flex-shrink: 0;
 }
+
+.model-container {
+  width: 100%;
+}

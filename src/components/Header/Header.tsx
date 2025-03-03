@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import './Header.css';
+import React, { useState, useEffect } from "react";
+import "./Header.css";
 import Clouds1 from "../../assets/home-clouds-fg@2x.webp";
 import Clouds2 from "../../assets/home-clouds-fg@2x (1).webp";
-import Airbus from "../../assets/airbus.png"
+import Model3D from "../Modelo/Modelo3D";
 
 const Header: React.FC = () => {
   const [cloudPosition, setCloudPosition] = useState(100);
@@ -30,8 +30,12 @@ const Header: React.FC = () => {
           <img src={Clouds2} alt="" />
         </div>
       </div>
+      <div className="model-container">
+        <Model3D />
+      </div>
     </div>
   );
 };
 
 export default Header;
+
