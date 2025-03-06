@@ -5,15 +5,12 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 const Model: React.FC = () => {
   const { scene } = useGLTF("/models/modeloa330texturas.glb");
   const modelRef = useRef<THREE.Group>(null);
-
-  // Variables de destino para suavizar el movimiento
   const targetRotation = useRef({ y: 0 });
 
   useFrame(({ clock, mouse }) => {
     if (modelRef.current) {
       modelRef.current.rotation.z = Math.sin(clock.elapsedTime) * 0.04;
 
-      // Aplicamos interpolación lineal para suavizar el movimiento
       targetRotation.current.y = mouse.x * 0.5;
       modelRef.current.rotation.y += (targetRotation.current.y - modelRef.current.rotation.y) * 0.1;
     }
