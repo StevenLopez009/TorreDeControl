@@ -4,7 +4,8 @@ import Clouds1 from "../../assets/home-clouds-fg@2x.webp";
 import Clouds2 from "../../assets/home-clouds-fg@2x (1).webp";
 import Logo from "../../assets/logo-removebg-preview.png";
 import MenuLateral from "../MenuLateral/MenuLateral";
-import Model3D2 from "../Modelo/Modelo3D2";
+import Fleet from "../Fleet/Fleet";
+import SceneViewer from "../Modelo/SceneViewer";
 
 const Header: React.FC = () => {
   const [cloudPosition, setCloudPosition] = useState(100);
@@ -58,7 +59,7 @@ const Header: React.FC = () => {
             transition: "transform 2s ease-in-out",
           }}
         >
-          <Model3D2 />
+          <SceneViewer modelSrc="/models/modeloa330texturas.glb" lightIntensity={2} scale={2.5} enableRotation={true}/>
         </div>
       ) : (
         <div
@@ -68,7 +69,7 @@ const Header: React.FC = () => {
             transition: "transform 2s ease-in-out",
           }}
         >
-          <h2>Flota</h2>
+          <Fleet/>
         </div>
       )}
 
