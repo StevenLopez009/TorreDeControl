@@ -18,3 +18,13 @@
   height: 80vh;
   position: relative;
 }
+
+.info-pannel {
+  position: absolute;
+  top: 50px;
+  left: 500px;
+  height: 50vh;
+  width: 40%;
+  background-color: white;
+  z-index: -1;
+}

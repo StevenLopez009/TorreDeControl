@@ -2,24 +2,36 @@ import React, { useState, useEffect } from "react";
 import SceneViewer from "../Modelo/SceneViewer";
 import { gsap } from "gsap";
 import "./Fleet.css";
+import InfoPannel from "../InfoPanel/InfoPannel";
 
 const Fleet: React.FC = () => {
   const [selectedModel, setSelectedModel] = useState<string | null>(null);
-  const [zoomScale, setZoomScale] = useState(1.7); // Valor inicial de escala
+  const [zoomScale, setZoomScale] = useState(1.7); 
+  const [showInfoPanel, setShowInfoPanel] = useState(false);
 
   useEffect(() => {
     if (selectedModel) {
       gsap.to(".selected-viewer", {
-        scale: 1.5, // Aumenta el zoom suavemente
-        duration: 1.5, // Duración de la animación en segundos
-        ease: "power2.out", // Hace la animación más natural
+        scale: 1.5, 
+        duration: 3.5, 
       });
+
+      setTimeout(() => {
+        setShowInfoPanel(true);
+        gsap.fromTo(
+          ".info-pannel",
+          { opacity: 0, x: 100 },
+          { opacity: 1, x: 0, duration: 1.5, ease: "power2.out" } 
+        );
+      }, 3000);
+
     } else {
       gsap.to(".selected-viewer", {
-        scale: 1, // Regresa al tamaño normal
+        scale: 1, 
         duration: 1.5,
         ease: "power2.out",
       });
+      setShowInfoPanel(false);
     }
   }, [selectedModel]);
 
@@ -30,15 +42,22 @@ const Fleet: React.FC = () => {
   return (
     <div className="fleet-container">
       {selectedModel ? (
-        <div className="selected-viewer">
-          <SceneViewer
-            modelSrc={selectedModel}
-            lightIntensity={2}
-            scale={zoomScale}
-            enableRotation={false}
-            rotationZ={0.25}
-          />
-        </div>
+        <>
+          <div className="selected-viewer">
+            <SceneViewer
+              modelSrc={selectedModel}
+              lightIntensity={2}
+              scale={zoomScale}
+              enableRotation={false}
+              rotationZ={0.25}
+            />
+             {showInfoPanel && (
+              <div className="info-pannel">
+                <InfoPannel />
+              </div>
+            )}
+          </div >
+        </>
       ) : (
         <>
           <div className="scene-viewer" onClick={() => handleClick("/models/ModelA320.glb")}>
