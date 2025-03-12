@@ -1,9 +1,27 @@
-import React, { useState } from 'react';
-import SceneViewer from '../Modelo/SceneViewer';
-import './Fleet.css';
+import React, { useState, useEffect } from "react";
+import SceneViewer from "../Modelo/SceneViewer";
+import { gsap } from "gsap";
+import "./Fleet.css";
 
 const Fleet: React.FC = () => {
   const [selectedModel, setSelectedModel] = useState<string | null>(null);
+  const [zoomScale, setZoomScale] = useState(1.7); // Valor inicial de escala
+
+  useEffect(() => {
+    if (selectedModel) {
+      gsap.to(".selected-viewer", {
+        scale: 1.5, // Aumenta el zoom suavemente
+        duration: 1.5, // Duración de la animación en segundos
+        ease: "power2.out", // Hace la animación más natural
+      });
+    } else {
+      gsap.to(".selected-viewer", {
+        scale: 1, // Regresa al tamaño normal
+        duration: 1.5,
+        ease: "power2.out",
+      });
+    }
+  }, [selectedModel]);
 
   const handleClick = (modelSrc: string) => {
     setSelectedModel(modelSrc);
@@ -16,8 +34,9 @@ const Fleet: React.FC = () => {
           <SceneViewer
             modelSrc={selectedModel}
             lightIntensity={2}
-            scale={1.5}
-            enableRotation={true}
+            scale={zoomScale}
+            enableRotation={false}
+            rotationZ={0.25}
           />
         </div>
       ) : (
@@ -28,6 +47,7 @@ const Fleet: React.FC = () => {
               lightIntensity={2}
               scale={2.3}
               enableRotation={false}
+              rotationZ={0.05}
             />
           </div>
           <div className="scene-viewer" onClick={() => handleClick("/models/A340Textures.glb")}>
@@ -36,6 +56,7 @@ const Fleet: React.FC = () => {
               lightIntensity={2}
               scale={2.3}
               enableRotation={false}
+              rotationZ={0.05}
             />
           </div>
           <div className="scene-viewer" onClick={() => handleClick("/models/modeloa330texturas.glb")}>
@@ -44,6 +65,7 @@ const Fleet: React.FC = () => {
               lightIntensity={2}
               scale={2.3}
               enableRotation={false}
+              rotationZ={0.05}
             />
           </div>
         </>

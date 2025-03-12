@@ -59,7 +59,7 @@ const Header: React.FC = () => {
             transition: "transform 2s ease-in-out",
           }}
         >
-          <SceneViewer modelSrc="/models/modeloa330texturas.glb" lightIntensity={2} scale={2.5} enableRotation={true}/>
+          <SceneViewer modelSrc="/models/modeloa330texturas.glb" lightIntensity={2} scale={2.5} enableRotation={true} rotationZ={0.05}/>
         </div>
       ) : (
         <div
