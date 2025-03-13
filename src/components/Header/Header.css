@@ -102,7 +102,7 @@
 }
 
 .fleet-container>*:nth-child(1) {
-  transform: translateY(-100px);
+  transform: translateY(-70px);
 }
 
 .fleet-container>*:nth-child(2) {

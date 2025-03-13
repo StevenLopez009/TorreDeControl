@@ -7,7 +7,7 @@ interface AnimatedModelProps {
   scale?: number;
   initialRotation?: [number, number, number];
   enableRotation?: boolean;
-  rotationZ?: number;
+  rotationZ: number;
 }
 
 const AnimatedModel: React.FC<AnimatedModelProps> = ({ src, scale , initialRotation = [-0.15, 0, 0.1],enableRotation, rotationZ }) => {

@@ -1,0 +1,17 @@
+.selection-airplane {
+  position: absolute;
+  top: -150px;
+  right: 1200px;
+}
+
+.selected-value label {
+  font-size: 4rem;
+  font-weight: thin;
+  color: #0f3272;
+}
+
+.options-menu {
+  font-size: 4rem;
+  background-color: #fff;
+  padding: 50px;
+}

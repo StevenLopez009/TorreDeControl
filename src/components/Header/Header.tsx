@@ -66,7 +66,7 @@ const Header: React.FC = () => {
           className="fleet-container"
           style={{
             transform: `translateX(${fleetPosition}px)`,
-            transition: "transform 2s ease-in-out",
+            transition: "transform 3s ease-in-out",
           }}
         >
           <Fleet/>
