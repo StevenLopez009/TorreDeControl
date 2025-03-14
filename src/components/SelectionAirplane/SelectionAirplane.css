@@ -1,25 +1,45 @@
 .selection-airplane {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: aqua;
-  width: 20%;
-  height: 30vh;
+  position: absolute;
+  top: 150px;
+  left: 50px;
+  width: 200px;
+  border-radius: 8px;
+  padding: 16px;
+  z-index: 100;
 }
 
 .selected-value {
   display: flex;
-
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
 }
 
 .selected-value label {
-  font-size: 4rem;
-  font-weight: thin;
+  font-size: 3rem;
+  font-weight: 500;
   color: #0f3272;
+  margin: 0;
+}
+
+.selected-value svg {
+  color: #0f3272;
+  font-size: 1.5rem;
 }
 
 .options-menu {
-  font-size: 4rem;
-  background-color: #fff;
-  padding: 50px;
+  margin-top: 8px;
+  border-radius: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.option {
+  padding: 12px;
+  font-size: 3rem;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }

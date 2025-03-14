@@ -5,9 +5,10 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 interface SelectionAirplaneProps {
   onSelect: string;
+  onSelectModel: (modelSrc: string) => void;
 }
 
-const SelectionAirplane: React.FC<SelectionAirplaneProps> = ({ onSelect }) => {
+const SelectionAirplane: React.FC<SelectionAirplaneProps> = ({ onSelect, onSelectModel }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const airplanes = [
@@ -20,34 +21,37 @@ const SelectionAirplane: React.FC<SelectionAirplaneProps> = ({ onSelect }) => {
     setIsMenuOpen(!isMenuOpen); 
   };
 
+  const handleModelSelect = (modelSrc: string) => {
+    onSelectModel(modelSrc); 
+    setIsMenuOpen(false); 
+  };
+
   return (
     <div className="selection-airplane">
-          {!isMenuOpen &&(
-            <div className="selected-value" >
-              <label htmlFor="airplane-select">{onSelect}</label> 
-              <div className="selected-value" onClick={handleArrowClick}>
-                <ArrowDownwardIcon style={{ cursor: "pointer", marginLeft: "8px" }} />
+    {!isMenuOpen ? (
+      <div className="selected-value" onClick={handleArrowClick}>
+        <label htmlFor="airplane-select">{onSelect}</label> 
+        <ArrowDownwardIcon/>
+      </div>
+    ) : (
+      <>
+        <div className="selected-value" onClick={handleArrowClick}>
+          <div className="options-menu">
+            {airplanes.map((airplane) => (
+              <div
+                key={airplane.modelSrc}
+                className="option"
+                onClick={() => handleModelSelect(airplane.modelSrc)} 
+              >
+                {airplane.name}
               </div>
-            </div>
-          )}
-        {isMenuOpen && (
-          <>
-              <div onClick={handleArrowClick} >
-                <ArrowUpwardIcon/>
-              </div>
-              <div className="options-menu">
-                {airplanes.map((airplane) => (
-                  <div
-                    key={airplane.modelSrc}
-                    className="option"
-                  >
-                    {airplane.name}
-                  </div>
-                ))}
-              </div>
-          </>
-        )}
-    </div>
+            ))}
+          </div>
+          <ArrowUpwardIcon />
+        </div>
+      </>
+    )}
+  </div>
   );
 };
 

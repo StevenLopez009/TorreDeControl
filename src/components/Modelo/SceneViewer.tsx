@@ -10,7 +10,7 @@ interface SceneViewerProps {
   scale: number;
   enableRotation?: boolean;
   zoom?: boolean; 
-  rotationZ?: number;
+  rotationZ: number;
 }
 
 const SceneViewer: React.FC<SceneViewerProps> = ({

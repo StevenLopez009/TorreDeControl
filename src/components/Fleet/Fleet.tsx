@@ -7,7 +7,7 @@ import SelectionAirplane from "../SelectionAirplane/SelectionAirplane";
 
 const Fleet: React.FC = () => {
   const [selectedModel, setSelectedModel] = useState<string | null>(null);
-  const [zoomScale, setZoomScale] = useState(1.7);
+  const [zoomScale, setZoomScale] = useState(3.1);
   const [showInfoPanel, setShowInfoPanel] = useState(false);
 
   const modelNames: Record<string, string> = {
@@ -59,6 +59,10 @@ const Fleet: React.FC = () => {
     setSelectedModel(modelSrc);
   };
 
+  const handleModelSelect = (modelSrc: string) => {
+    setSelectedModel(modelSrc); // Actualiza el estado con el modelo seleccionado
+  };
+
   return (
     <div className="fleet-container">
       {selectedModel ? (
@@ -75,7 +79,10 @@ const Fleet: React.FC = () => {
           {showInfoPanel &&(
             <div className="info-container">
               <InfoPannel {...getModelData(selectedModel)} />
-              <SelectionAirplane onSelect={selectedModel ? modelNames[selectedModel] : "Select an airplane"} />
+              <SelectionAirplane 
+                onSelect={modelNames[selectedModel]} 
+                onSelectModel={handleModelSelect} // Pasa la función de callback
+              />
             </div>
           )}
         </>
