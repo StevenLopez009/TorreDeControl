@@ -22,7 +22,6 @@ const SelectionAirplane: React.FC<SelectionAirplaneProps> = ({ onSelect }) => {
 
   return (
     <div className="selection-airplane">
-        <div className="custom-select">
           {!isMenuOpen &&(
             <div className="selected-value" >
               <label htmlFor="airplane-select">{onSelect}</label> 
@@ -31,7 +30,6 @@ const SelectionAirplane: React.FC<SelectionAirplaneProps> = ({ onSelect }) => {
               </div>
             </div>
           )}
-        </div>
         {isMenuOpen && (
           <>
               <div onClick={handleArrowClick} >

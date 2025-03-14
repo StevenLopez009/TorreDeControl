@@ -1,7 +1,15 @@
 .selection-airplane {
-  position: absolute;
-  top: -150px;
-  right: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: aqua;
+  width: 20%;
+  height: 30vh;
+}
+
+.selected-value {
+  display: flex;
+
 }
 
 .selected-value label {

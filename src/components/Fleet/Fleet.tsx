@@ -72,10 +72,12 @@ const Fleet: React.FC = () => {
               rotationZ={0.20}
             />
           </div>
-          {showInfoPanel && selectedModel && (
-            <InfoPannel {...getModelData(selectedModel)} />
+          {showInfoPanel &&(
+            <div className="info-container">
+              <InfoPannel {...getModelData(selectedModel)} />
+              <SelectionAirplane onSelect={selectedModel ? modelNames[selectedModel] : "Select an airplane"} />
+            </div>
           )}
-          <SelectionAirplane onSelect={selectedModel ? modelNames[selectedModel] : "Select an airplane"} />
         </>
       ) : (
         <>

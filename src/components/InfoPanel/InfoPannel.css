@@ -1,11 +1,10 @@
 .airplane-info {
-  position: absolute;
-  top: 60px;
-  left: 450px;
-  height: 60vh;
-  width: 70%;
+  position: relative;
+  left: 140px;
+  bottom: 40px;
+  height: 90%;
+  width: 60%;
   background-color: white;
-  z-index: -1;
   padding: 50px;
 }
 

@@ -1,8 +1,9 @@
 .fleet-container {
   display: flex;
   justify-content: center;
-  width: 90%;
+  width: 95%;
   padding-top: 100px;
+  position: relative;
 }
 
 .scene-viewer {
@@ -10,6 +11,16 @@
   height: 300px;
 }
 
+.info-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: absolute;
+}
 
 .selected-viewer {
   top: 250px;
@@ -17,4 +28,5 @@
   width: 100%;
   height: 80vh;
   position: relative;
+
 }
