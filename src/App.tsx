@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css'
 import Header from './components/Header/Header'
 import Clouds1 from "../src/assets/home-clouds-fg@2x.webp";
@@ -8,16 +7,6 @@ import Fleet from './components/Fleet/Fleet';
 import LogoContainer from './components/logoContainer/LogoContainer';
 
 function App() {
-  const [cloudPosition, setCloudPosition] = useState(100);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCloudPosition((prev) => (prev <= -100 ? 100 : prev - 1));
-    }, 500);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
      <Router>
       <div className="header">

@@ -25,11 +25,11 @@ const Fleet: React.FC = () => {
   const getModelData = (modelSrc: string | null) => {
     if (!modelSrc) return null;
     return {
-      nameAirplane: modelNames[modelSrc] || "Modelo Desconocido",
-      ...(airplaneData[modelSrc] || { seats: 0, Business: 0, Premium: 0, Economy: 0, Range: 0 })
+      nameAirplane: modelNames[modelSrc] ?? "Modelo Desconocido", // Siempre tendrá un string
+      ...(airplaneData[modelSrc] ?? { seats: 0, Business: 0, Premium: 0, Economy: 0, Range: 0 })
     };
   };
-
+  
   useEffect(() => {
     if (selectedModel) {
       gsap.to(".selected-viewer", {
@@ -72,6 +72,7 @@ const Fleet: React.FC = () => {
               modelSrc={selectedModel}
               lightIntensity={2}
               scale={zoomScale}
+              setScale={setZoomScale}
               enableRotation={false}
               rotationZ={0.20}
             />
@@ -81,7 +82,7 @@ const Fleet: React.FC = () => {
               <InfoPannel {...getModelData(selectedModel)} />
               <SelectionAirplane 
                 onSelect={modelNames[selectedModel]} 
-                onSelectModel={handleModelSelect} // Pasa la función de callback
+                onSelectModel={handleModelSelect} 
               />
             </div>
           )}

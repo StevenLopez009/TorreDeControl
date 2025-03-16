@@ -7,6 +7,7 @@ import gsap from "gsap";
 interface SceneViewerProps {
   modelSrc: string;
   lightIntensity?: number;
+  setScale?: any;
   scale: number;
   enableRotation?: boolean;
   zoom?: boolean; 

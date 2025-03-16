@@ -1,12 +1,12 @@
 import "./InfoPannel.css"
 
 interface InfoPannelProps{
-  nameAirplane: string;
-  seats: number;
-  Business: number;
-  Premium: number;  
-  Economy: number;
-  Range: number;
+  nameAirplane?: string;
+  seats?: number;
+  Business?: number;
+  Premium?: number;  
+  Economy?: number;
+  Range?: number;
 }
 
 const InfoPannel: React.FC <InfoPannelProps>= ({nameAirplane, seats, Business, Premium, Economy, Range}) => {
@@ -14,7 +14,7 @@ const InfoPannel: React.FC <InfoPannelProps>= ({nameAirplane, seats, Business, P
     <section className='airplane-info'>
       <div className="airplane-title">
         <p>Registration</p>
-        <h1>{nameAirplane}</h1>
+        <h1>{nameAirplane || "Modelo Desconocido"}</h1>
       </div>
       <dl className="airplane-specs">
         <div className="spec-item">

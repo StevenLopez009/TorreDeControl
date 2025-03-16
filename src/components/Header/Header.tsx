@@ -1,26 +1,16 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import "./Header.css";
 import MenuLateral from "../MenuLateral/MenuLateral";
 import SceneViewer from "../Modelo/SceneViewer";
 
 const Header: React.FC = () => {
-  const [cloudPosition, setCloudPosition] = useState(100);
   const [planePosition, setPlanePosition] = useState(0);
-  const [fleetPosition, setFleetPosition] = useState(-1700);
   const [isPlaneMoving, setIsPlaneMoving] = useState(true);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCloudPosition((prev) => (prev <= -100 ? 100 : prev - 1));
-    }, 500);
-
-    return () => clearInterval(interval);
-  }, []);
 
   const handleFleetClick = () => {
     setTimeout(() => {
       setIsPlaneMoving(false);
-      setFleetPosition(0);
     }, 1000);
 
     setPlanePosition(1700);
